@@ -2,7 +2,8 @@
 
 Simple package to work with ranges in dart.
 
-A Range has two endpoints denoted by class members 'a' and 'b'.  A DoubleRange and IntRange are provided.
+A Range has two endpoints which implement `Comparable` denoted by class members 'a' and 'b'. \
+Classes DoubleRange and IntRange are provided.
 
 # Instantiation
 A Range can be instantiated by providing the endpoints as arguments to a class which extends Range.
