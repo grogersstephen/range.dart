@@ -21,6 +21,8 @@ abstract class Range<T extends Comparable> {
     return result;
   }
 
+  T get singular =>
+      isSingular ? a : throw Exception("this range is not singular");
   bool get isSingular => a.compareTo(b) == 0;
   T get top => a.compareTo(b) > 0 ? a : b;
   T get bottom => a.compareTo(b) < 0 ? a : b;
