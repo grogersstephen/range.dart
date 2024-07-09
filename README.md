@@ -12,25 +12,58 @@ final intRange = IntRange(50, 250);
 ```
 
 # Getters
-## top
-Get the endpoint which is ordered after.
-## bottom
-Get the endpoint which is ordered before.
-## isSingular
-Returns true if both endpoints are equivalent. More specifically: if both endpoints are ordered together according to `compareTo` from `Comparable`.
-## singular
-If both endpoints are equivalent, returns that value.  Otherwise, this throws an exception.
+#### top
+Get the endpoint which is ordered after:
+```dart
+doubleRange.top // 12.5
+```
+
+#### bottom
+Get the endpoint which is ordered before:
+```dart
+doubleRange.bottom // 3.0
+```
+
+#### isSingular
+Returns true if both endpoints are equivalent.
+    More specifically: if both endpoints are ordered together 
+        according to `compareTo` from `Comparable`.
+```dart
+doubleRange.isSingluar // false
+```
+
+#### singular
+ If both endpoints are equivalent, returns that value.
+     Otherwise, this throws an exception.
+```dart
+doubleRange.singluar // Exception("this range is not singular");
+```
 
 # Methods
-## bool isInRange(T other, {bool inclusive = true})
-Returns true if `other` lies between if other is ordered before the top endpoint and ordered after the bottom endpoint.  If `inclusive` is set to `true`, then `other` may equal the top or bottom endpoint.
+#### isInRange
+```dart
+bool isInRange(T other, {bool inclusive = true});
+```
+```dart
+//     Returns true if `other` lies between the two endpoints.
+//         If `inclusive` is set to `true`, then `other` may equal either endpoint.
+doubleRange.isInRange(5.5) // true
+```
+
 
 # Static Methods
 These may help when creating a class to extend `Range`. 
-## static double mean(double start, double end)
-This returns the center value between two doubles.
-## static List<double> points(double start, double end, int count)
+#### mean
+This returns the mean value of two doubles.
+```dart
+static double mean(double start, double end);
+```
+
+#### points
 Given two doubles and a count, this will return an evenly spaced list of doubles of length `count` including the `start` and `end` values.
+```dart
+static List<double> points(double start, double end, int count);
+```
 
 
 # Declaring a Class which extends Range
