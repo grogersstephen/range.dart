@@ -1,6 +1,6 @@
 import 'package:range/range.dart';
 
-void main(List<String> arguments) {
+void main() {
   final r = DoubleRange(3.2999, 3.347);
 
   print("r: $r");

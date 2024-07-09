@@ -26,8 +26,12 @@ abstract class Range<T extends Comparable> {
   bool get isSingular => a.compareTo(b) == 0;
   T get top => a.compareTo(b) > 0 ? a : b;
   T get bottom => a.compareTo(b) < 0 ? a : b;
-  bool isInRange(T other) =>
-      other.compareTo(top) <= 0 && other.compareTo(bottom) >= 0;
+  bool isInRange(T other, {bool inclusive = true}) {
+    if (inclusive) {
+      return other.compareTo(top) <= 0 && other.compareTo(bottom) >= 0;
+    }
+    return other.compareTo(top) < 0 && other.compareTo(bottom) > 0;
+  }
 
   @override
   String toString() {
